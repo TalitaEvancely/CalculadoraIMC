@@ -1,5 +1,6 @@
 package com.comunidadedevspace.imc
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +24,8 @@ class MainActivity : AppCompatActivity()
 
             if(pesoStr == "" || alturaStr == ""){
                 //mostrar mensagem para o usuário
-                Snackbar.make(
+                Snackbar
+                    .make(
                     edtPeso,
                     "Preencha os campos solicitados",
                     Snackbar.LENGTH_LONG
@@ -35,7 +37,19 @@ class MainActivity : AppCompatActivity()
             val alturaQ2 = altura * altura
             val resultado = peso / alturaQ2
 
+                //navegar para a proxima tela
+                //criar o layout do resultado
+                // passar dados(resultado) para a proxima tela
+                //intent (explicita) para ligar uma activity a outra - classe do próprio android
+
+           val intent = Intent(this,ResultActivity::class.java)
+
+                intent.putExtra( KEY_RESULT_IMC,resultado) //CHAVE QUE LIGA O RESULTADO AS DUAS TELAS
+
+           startActivity(intent)
+
             println("Calculo IMC = " + resultado)
+
         }
         }
     }
