@@ -21,6 +21,29 @@ class ResultActivity : AppCompatActivity() {
 
         tvResult.text = result.toString()
 
-        //println("Resultado imc = " + result)
+        /* Parâmetros de medidas
+    * MENOR QUE 18,5        MAGREZA
+    * ENTRE 18,5 E 24,9     NORMAL
+    * ENTRE 25,0 E 29,9     SOBREPESO
+    * ENTRE 30,0 E 39,9     OBESIDADE II
+    * MAIOR QUE 40,0        OBESIDADE GRAVE
+       */
+        val classificacao: String = if( result <= 18.5f){
+            "MAGREZA"
+        }else if( result >18.5f && result <=24.9f){
+            "NORMAL"
+        }else if( result >25f && result <=29.9f){
+            "SOBREPESO"
+        }else if( result >30f && result <=39.9f){
+            "OBESIDADE"
+        }else{
+            "OBESIDADE GRAVE"
+        }
+
+        //mostrar a classificação na tela
+        tvClassificação.text = classificacao
+
     }
+
+
 }
