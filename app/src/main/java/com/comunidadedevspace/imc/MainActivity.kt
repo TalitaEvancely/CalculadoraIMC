@@ -37,10 +37,6 @@ class MainActivity : AppCompatActivity()
             val alturaQ2 = altura * altura
             val resultado = peso / alturaQ2
 
-                //navegar para a proxima tela
-                //criar o layout do resultado
-                // passar dados(resultado) para a proxima tela
-                //intent (explicita) para ligar uma activity a outra - classe do próprio android
 
            val intent = Intent(this,ResultActivity::class.java)
 
@@ -50,6 +46,12 @@ class MainActivity : AppCompatActivity()
 
             println("Calculo IMC = " + resultado)
 
+                /* Cores
+                 - EditText background + icones
+                 - Grandiente + icones + títulos + descrição
+
+
+                * */
         }
         }
     }

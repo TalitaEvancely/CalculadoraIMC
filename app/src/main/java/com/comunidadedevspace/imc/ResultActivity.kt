@@ -1,5 +1,6 @@
 package com.comunidadedevspace.imc
 
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -19,7 +20,10 @@ class ResultActivity : AppCompatActivity() {
         val tvResult = findViewById<TextView>(R.id.tv_result)
         val tvClassificação = findViewById<TextView>(R.id.tv_classificacao)
 
+
         tvResult.text = result.toString()
+
+
 
         /* Parâmetros de medidas
     * MENOR QUE 18,5        MAGREZA
@@ -28,22 +32,36 @@ class ResultActivity : AppCompatActivity() {
     * ENTRE 30,0 E 39,9     OBESIDADE II
     * MAIOR QUE 40,0        OBESIDADE GRAVE
        */
-        val classificacao: String = if( result <= 18.5f){
-            "MAGREZA"
-        }else if( result >18.5f && result <=24.9f){
-            "NORMAL"
-        }else if( result >25f && result <=29.9f){
-            "SOBREPESO"
-        }else if( result >30f && result <=39.9f){
-            "OBESIDADE"
-        }else{
-            "OBESIDADE GRAVE"
+
+        // Definir classificação e cor do texto
+        val classificacao: String
+        val corTexto: Int
+
+        if (result <= 18.5f) {
+            classificacao = "MAGREZA"
+            corTexto = Color.GREEN
+        } else if (result > 18.5f && result <= 24.9f) {
+            classificacao = "NORMAL"
+            corTexto = Color.BLUE
+        } else if (result > 25f && result <= 29.9f) {
+            classificacao = "SOBREPESO"
+            corTexto = Color.YELLOW
+        } else if (result > 30f && result <= 39.9f) {
+            classificacao = "OBESIDADE"
+            corTexto = Color.rgb(255, 165, 0) // Laranja
+        } else {
+            classificacao = "OBESIDADE GRAVE"
+            corTexto = Color.RED
         }
 
-        //mostrar a classificação na tela
+        // Mostrar a classificação na tela com a cor correspondente
+
         tvClassificação.text = classificacao
+        tvClassificação.setTextColor(corTexto)
 
     }
 
 
 }
+
+
