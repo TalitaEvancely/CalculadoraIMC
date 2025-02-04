@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra(
                     KEY_RESULT_IMC,
                     resultado
-                ) //CHAVE QUE LIGA O RESULTADO AS DUAS TELAS
+                )
 
                 startActivity(intent)
 
