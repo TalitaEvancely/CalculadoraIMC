@@ -15,7 +15,7 @@ class ResultActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_result)
 
-        val result = intent.getFloatExtra(KEY_RESULT_IMC,0f)
+        val result = intent.getFloatExtra(KEY_RESULT_IMC, 0f)
 
         val tvResult = findViewById<TextView>(R.id.tv_result)
         val tvClassificação = findViewById<TextView>(R.id.tv_classificacao)
@@ -24,16 +24,6 @@ class ResultActivity : AppCompatActivity() {
         tvResult.text = result.toString()
 
 
-
-        /* Parâmetros de medidas
-    * MENOR QUE 18,5        MAGREZA
-    * ENTRE 18,5 E 24,9     NORMAL
-    * ENTRE 25,0 E 29,9     SOBREPESO
-    * ENTRE 30,0 E 39,9     OBESIDADE II
-    * MAIOR QUE 40,0        OBESIDADE GRAVE
-       */
-
-        // Definir classificação e cor do texto
         val classificacao: String
         val corTexto: Int
 
@@ -53,8 +43,6 @@ class ResultActivity : AppCompatActivity() {
             classificacao = "OBESIDADE GRAVE"
             corTexto = Color.RED
         }
-
-        // Mostrar a classificação na tela com a cor correspondente
 
         tvClassificação.text = classificacao
         tvClassificação.setTextColor(corTexto)
