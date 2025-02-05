@@ -6,5 +6,4 @@
         <item name="android:statusBarColor">@color/primary_900</item>
     </style>
 
-    <color name="primary_900" />
 </resources>
